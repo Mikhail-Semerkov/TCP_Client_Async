@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using TCP_Asynchronous_Client;
 
-
 namespace TCP_Client
 {
     public partial class Form1 : Form
@@ -13,7 +12,6 @@ namespace TCP_Client
         public delegate void AddNotificationDelegate(int type, bool status);
         public AddNotificationDelegate UpdateStatusIcons;
 
-
         AsynchronousClient tcp;
 
         public Form1()
@@ -23,7 +21,8 @@ namespace TCP_Client
             AddLog = new AddLogDeligate(Log);
             UpdateStatusIcons = new AddNotificationDelegate(StatusUpdate);
 
-           
+            StatusUpdate(1, false);
+
         }
 
         private void button_connect_Click(object sender, EventArgs e)
@@ -42,37 +41,35 @@ namespace TCP_Client
             }
         }
 
-
         private void OnConnect(bool status)
         {
             textBox_log.Invoke(AddLog, "Connection : " + status.ToString());
-            label_status.Invoke(UpdateStatusIcons, 1, status);
+            label_status_connected.Invoke(UpdateStatusIcons, 1, status);
         }
-
 
         private void OnRecieved(string data)
         {
-            lblRead.Invoke(UpdateStatusIcons, 3, true);
+            label_rx.Invoke(UpdateStatusIcons, 3, true);
             textBox_log.Invoke(AddLog, "Recieved : " + data);
         }
 
-        private void StatusUpdate(int type, bool status)
+        public void StatusUpdate(int type, bool status)
         {
             switch (type)
             {
                 case 1:
                     if (status)
                     {
-                        label_status.Text = "Connected";
-                        label_status.BackColor = System.Drawing.Color.Green;
+                        label_status_connected.Text = "Connected";
+                        label_status_connected.BackColor = System.Drawing.Color.DarkGreen;
                         button_connect.Enabled = false;
                         button_disconnect.Enabled = true;
                         button_send.Enabled = true;
                     }
                     else
                     {
-                        label_status.Text = "Disconnected";
-                        label_status.BackColor = System.Drawing.Color.Red;
+                        label_status_connected.Text = "Disconnected";
+                        label_status_connected.BackColor = System.Drawing.Color.DarkRed;
                         button_connect.Enabled = true;
                         button_disconnect.Enabled = false;
                         button_send.Enabled = false;
@@ -82,22 +79,22 @@ namespace TCP_Client
                 case 2:
                     if (status)
                     {
-                       lblWrite.Visible = true;
+                        label_tx.ForeColor = System.Drawing.Color.White;
                     }
                     else
                     {
-                       lblWrite.Visible = false;
+                        label_tx.ForeColor = System.Drawing.Color.DarkGray;
                     }
                     break;
 
                 case 3:
                     if (status)
                     {
-                       lblRead.Visible = true;
+                       label_rx.ForeColor = System.Drawing.Color.White;
                     }
                     else
                     {
-                      lblRead.Visible = false;
+                        label_rx.ForeColor = System.Drawing.Color.DarkGray;
                     }
                     break;
 
@@ -114,12 +111,6 @@ namespace TCP_Client
         }
 
 
-        private void timClear_Tick(object sender, EventArgs e)
-        {
-            lblWrite.Visible = false;
-            lblRead.Visible = false;
-        }
-
         private void button_disconnect_Click(object sender, EventArgs e)
         {
             tcp.Disconnect();
@@ -134,6 +125,7 @@ namespace TCP_Client
                 if (tcp.Write(textBox_send.Text))
                 {
                     Log("Write (Success) : " + textBox_send.Text);
+            
                 }
                 else
                 {
@@ -149,6 +141,12 @@ namespace TCP_Client
         private void button_clear_Click(object sender, EventArgs e)
         {
             textBox_log.Clear();
+        }
+
+        private void timer_notifications_Tick(object sender, EventArgs e)
+        {
+            label_tx.ForeColor = System.Drawing.Color.DarkGray;
+            label_rx.ForeColor = System.Drawing.Color.DarkGray;
         }
     }
 
