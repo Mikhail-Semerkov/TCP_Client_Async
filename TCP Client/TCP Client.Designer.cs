@@ -54,6 +54,7 @@ namespace TCP_Client
             this.timer_notifications = new System.Windows.Forms.Timer(this.components);
             this.label_tx = new System.Windows.Forms.Label();
             this.label_rx = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_left.SuspendLayout();
             this.panel_label.SuspendLayout();
             this.panel_ip.SuspendLayout();
@@ -72,7 +73,7 @@ namespace TCP_Client
             this.panel_left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_left.Location = new System.Drawing.Point(0, 0);
             this.panel_left.Name = "panel_left";
-            this.panel_left.Size = new System.Drawing.Size(232, 305);
+            this.panel_left.Size = new System.Drawing.Size(232, 318);
             this.panel_left.TabIndex = 0;
             // 
             // button_disconnect
@@ -100,12 +101,15 @@ namespace TCP_Client
             // panel_label
             // 
             this.panel_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_label.Controls.Add(this.label2);
             this.panel_label.Controls.Add(this.label1);
+            this.panel_label.Controls.Add(this.label_rx);
+            this.panel_label.Controls.Add(this.label_tx);
             this.panel_label.Controls.Add(this.label_status_connected);
             this.panel_label.Controls.Add(this.label_name_programs);
             this.panel_label.Location = new System.Drawing.Point(12, 12);
             this.panel_label.Name = "panel_label";
-            this.panel_label.Size = new System.Drawing.Size(209, 72);
+            this.panel_label.Size = new System.Drawing.Size(209, 87);
             this.panel_label.TabIndex = 1;
             // 
             // label1
@@ -123,9 +127,9 @@ namespace TCP_Client
             // 
             this.label_status_connected.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_status_connected.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label_status_connected.Location = new System.Drawing.Point(25, 43);
+            this.label_status_connected.Location = new System.Drawing.Point(25, 42);
             this.label_status_connected.Name = "label_status_connected";
-            this.label_status_connected.Size = new System.Drawing.Size(161, 22);
+            this.label_status_connected.Size = new System.Drawing.Size(161, 21);
             this.label_status_connected.TabIndex = 1;
             this.label_status_connected.Text = "Status";
             this.label_status_connected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,7 +173,7 @@ namespace TCP_Client
             this.panel_ip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_ip.Controls.Add(this.label_ip);
             this.panel_ip.Controls.Add(this.textBox_ip);
-            this.panel_ip.Location = new System.Drawing.Point(12, 90);
+            this.panel_ip.Location = new System.Drawing.Point(12, 105);
             this.panel_ip.Name = "panel_ip";
             this.panel_ip.Size = new System.Drawing.Size(209, 60);
             this.panel_ip.TabIndex = 3;
@@ -197,8 +201,6 @@ namespace TCP_Client
             // 
             // panel_log_data
             // 
-            this.panel_log_data.Controls.Add(this.label_rx);
-            this.panel_log_data.Controls.Add(this.label_tx);
             this.panel_log_data.Controls.Add(this.button_open_file);
             this.panel_log_data.Controls.Add(this.button_send);
             this.panel_log_data.Controls.Add(this.button_clear);
@@ -208,7 +210,7 @@ namespace TCP_Client
             this.panel_log_data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_log_data.Location = new System.Drawing.Point(232, 0);
             this.panel_log_data.Name = "panel_log_data";
-            this.panel_log_data.Size = new System.Drawing.Size(496, 305);
+            this.panel_log_data.Size = new System.Drawing.Size(496, 318);
             this.panel_log_data.TabIndex = 1;
             // 
             // panel1
@@ -216,7 +218,7 @@ namespace TCP_Client
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label_port);
             this.panel1.Controls.Add(this.textBox_port);
-            this.panel1.Location = new System.Drawing.Point(12, 156);
+            this.panel1.Location = new System.Drawing.Point(12, 171);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 60);
             this.panel1.TabIndex = 6;
@@ -224,7 +226,7 @@ namespace TCP_Client
             // button_send
             // 
             this.button_send.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_send.Location = new System.Drawing.Point(400, 263);
+            this.button_send.Location = new System.Drawing.Point(404, 259);
             this.button_send.Name = "button_send";
             this.button_send.Size = new System.Drawing.Size(85, 25);
             this.button_send.TabIndex = 7;
@@ -235,7 +237,7 @@ namespace TCP_Client
             // button_clear
             // 
             this.button_clear.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_clear.Location = new System.Drawing.Point(401, 229);
+            this.button_clear.Location = new System.Drawing.Point(404, 228);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(85, 25);
             this.button_clear.TabIndex = 6;
@@ -246,10 +248,10 @@ namespace TCP_Client
             // textBox_send
             // 
             this.textBox_send.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_send.Location = new System.Drawing.Point(6, 263);
+            this.textBox_send.Location = new System.Drawing.Point(12, 259);
             this.textBox_send.Multiline = true;
             this.textBox_send.Name = "textBox_send";
-            this.textBox_send.Size = new System.Drawing.Size(295, 26);
+            this.textBox_send.Size = new System.Drawing.Size(295, 25);
             this.textBox_send.TabIndex = 6;
             this.textBox_send.Text = "1b 47 73 30 33 04";
             this.textBox_send.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -282,7 +284,7 @@ namespace TCP_Client
             this.panel_connect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_connect.Controls.Add(this.button_disconnect);
             this.panel_connect.Controls.Add(this.button_connect);
-            this.panel_connect.Location = new System.Drawing.Point(12, 222);
+            this.panel_connect.Location = new System.Drawing.Point(12, 237);
             this.panel_connect.Name = "panel_connect";
             this.panel_connect.Size = new System.Drawing.Size(209, 74);
             this.panel_connect.TabIndex = 6;
@@ -290,7 +292,7 @@ namespace TCP_Client
             // button_open_file
             // 
             this.button_open_file.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_open_file.Location = new System.Drawing.Point(309, 263);
+            this.button_open_file.Location = new System.Drawing.Point(313, 259);
             this.button_open_file.Name = "button_open_file";
             this.button_open_file.Size = new System.Drawing.Size(85, 25);
             this.button_open_file.TabIndex = 13;
@@ -306,11 +308,11 @@ namespace TCP_Client
             // label_tx
             // 
             this.label_tx.AutoSize = true;
-            this.label_tx.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tx.ForeColor = System.Drawing.SystemColors.Window;
-            this.label_tx.Location = new System.Drawing.Point(7, 231);
+            this.label_tx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label_tx.ForeColor = System.Drawing.Color.DimGray;
+            this.label_tx.Location = new System.Drawing.Point(70, 64);
             this.label_tx.Name = "label_tx";
-            this.label_tx.Size = new System.Drawing.Size(31, 17);
+            this.label_tx.Size = new System.Drawing.Size(29, 17);
             this.label_tx.TabIndex = 14;
             this.label_tx.Text = "TX";
             this.label_tx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -318,21 +320,33 @@ namespace TCP_Client
             // label_rx
             // 
             this.label_rx.AutoSize = true;
-            this.label_rx.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold);
-            this.label_rx.ForeColor = System.Drawing.SystemColors.Window;
-            this.label_rx.Location = new System.Drawing.Point(44, 231);
+            this.label_rx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label_rx.ForeColor = System.Drawing.Color.DimGray;
+            this.label_rx.Location = new System.Drawing.Point(108, 64);
             this.label_rx.Name = "label_rx";
-            this.label_rx.Size = new System.Drawing.Size(34, 17);
+            this.label_rx.Size = new System.Drawing.Size(32, 17);
             this.label_rx.TabIndex = 15;
             this.label_rx.Text = "RX";
             this.label_rx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(98, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "/";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(728, 305);
+            this.ClientSize = new System.Drawing.Size(728, 318);
             this.Controls.Add(this.panel_log_data);
             this.Controls.Add(this.panel_left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -340,6 +354,7 @@ namespace TCP_Client
             this.Text = "TCP Client";
             this.panel_left.ResumeLayout(false);
             this.panel_label.ResumeLayout(false);
+            this.panel_label.PerformLayout();
             this.panel_ip.ResumeLayout(false);
             this.panel_ip.PerformLayout();
             this.panel_log_data.ResumeLayout(false);
@@ -377,6 +392,7 @@ namespace TCP_Client
         private System.Windows.Forms.Timer timer_notifications;
         private System.Windows.Forms.Label label_rx;
         private System.Windows.Forms.Label label_tx;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -36,15 +36,27 @@ namespace TCP_Client
             }
             catch (Exception ex)
             {
-
                 Log("Error : " + ex.ToString());
             }
         }
 
         private void OnConnect(bool status)
         {
+            //if (status == true)
+            //{
+            //    button_connect.Text = "disconnected";
+            //}
+            //else if (status == false)
+            //{
+            //    button_connect.Text = "connected";
+            //}
+
+
             textBox_log.Invoke(AddLog, "Connection : " + status.ToString());
             label_status_connected.Invoke(UpdateStatusIcons, 1, status);
+
+
+
         }
 
         private void OnRecieved(string data)
@@ -83,7 +95,7 @@ namespace TCP_Client
                     }
                     else
                     {
-                        label_tx.ForeColor = System.Drawing.Color.DarkGray;
+                        label_tx.ForeColor = System.Drawing.Color.DimGray;
                     }
                     break;
 
@@ -94,7 +106,7 @@ namespace TCP_Client
                     }
                     else
                     {
-                        label_rx.ForeColor = System.Drawing.Color.DarkGray;
+                        label_rx.ForeColor = System.Drawing.Color.DimGray;
                     }
                     break;
 
@@ -145,8 +157,10 @@ namespace TCP_Client
 
         private void timer_notifications_Tick(object sender, EventArgs e)
         {
-            label_tx.ForeColor = System.Drawing.Color.DarkGray;
-            label_rx.ForeColor = System.Drawing.Color.DarkGray;
+            label_tx.ForeColor = System.Drawing.Color.DimGray;
+            label_rx.ForeColor = System.Drawing.Color.DimGray;
+
+
         }
     }
 
