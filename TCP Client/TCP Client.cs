@@ -43,20 +43,9 @@ namespace TCP_Client
 
         private void OnConnect(bool status)
         {
-            //if (status == true)
-            //{
-            //    button_connect.Text = "disconnected";
-            //}
-            //else if (status == false)
-            //{
-            //    button_connect.Text = "connected";
-            //}
-
 
             textBox_log.Invoke(AddLog, "Connection : " + status.ToString());
             label_status_connected.Invoke(UpdateStatusIcons, 1, status);
-
-
 
         }
 
@@ -77,7 +66,9 @@ namespace TCP_Client
                         label_status_connected.BackColor = System.Drawing.Color.DarkGreen;
                         button_connect.Enabled = false;
                         button_disconnect.Enabled = true;
-                        button_send.Enabled = true;
+                        button_send_1.Enabled = true;
+                        button_send_2.Enabled = true;
+                        button_send_3.Enabled = true;
                     }
                     else
                     {
@@ -85,7 +76,9 @@ namespace TCP_Client
                         label_status_connected.BackColor = System.Drawing.Color.DarkRed;
                         button_connect.Enabled = true;
                         button_disconnect.Enabled = false;
-                        button_send.Enabled = false;
+                        button_send_1.Enabled = false;
+                        button_send_2.Enabled = false;
+                        button_send_3.Enabled = false;
                     }
                     break;
 
@@ -118,9 +111,11 @@ namespace TCP_Client
 
         private void Log(string _data)
         {
-            textBox_log.Text = textBox_log.Text + _data + "\n\n";
-            textBox_log.SelectionStart = textBox_log.Text.Length;
-            textBox_log.ScrollToCaret();
+
+            textBox_log.AppendText(_data + "\r\n");
+            //textBox_log.Text = textBox_log.Text + _data + "\n\n";
+            //textBox_log.SelectionStart = textBox_log.Text.Length;
+            //textBox_log.ScrollToCaret();
         }
 
 
@@ -129,27 +124,6 @@ namespace TCP_Client
             tcp.Disconnect();
         }
 
-        private void button_send_Click_1(object sender, EventArgs e)
-        {
-            StatusUpdate(2, true);
-
-            try
-            {
-                if (tcp.Write(textBox_send.Text))
-                {
-                    Log("Write (Success) : " + textBox_send.Text);
-            
-                }
-                else
-                {
-                    Log("Write (Failed) : Disconnected");
-                }
-            }
-            catch (Exception ex)
-            {
-                Log("Error : " + ex.ToString());
-            }
-        }
 
         private void button_clear_Click(object sender, EventArgs e)
         {
@@ -160,15 +134,88 @@ namespace TCP_Client
         {
             label_tx.ForeColor = System.Drawing.Color.DimGray;
             label_rx.ForeColor = System.Drawing.Color.DimGray;
-
-
         }
 
         private void GitHub_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/Mikhail-Semerkov/TCP_Client_Async/");
         }
+
+
+        
+
+        public void send_data(int Send_Data)
+        {
+
+            StatusUpdate(2, true);
+
+            try
+            {
+                switch (Send_Data)
+                {
+                    case 1:
+                        if (tcp.Write(textBox_send_1.Text))
+                        {
+                            Log("Write (Success) : " + textBox_send_1.Text + "\n");
+
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
+
+
+                    case 2:
+                        if (tcp.Write(textBox_send_2.Text))
+                        {
+                            Log("Write (Success) : " + textBox_send_2.Text + "\n");
+
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
+
+
+                    case 3:
+                        if (tcp.Write(textBox_send_3.Text))
+                        {
+                            Log("Write (Success) : " + textBox_send_3.Text + "\n");
+
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log("Error : " + ex.ToString());
+            }
+        }
+
+
+        private void button_send_1_Click(object sender, EventArgs e)
+        {
+            send_data(1);
+        }
+
+        private void button_send_2_Click(object sender, EventArgs e)
+        {
+            send_data(2);
+        }
+
+        private void button_send_3_Click(object sender, EventArgs e)
+        {
+            send_data(3);
+        }
     }
+    
 
 }
 

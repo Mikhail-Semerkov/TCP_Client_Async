@@ -31,14 +31,12 @@ namespace TCP_Client
         {
             this.components = new System.ComponentModel.Container();
             this.panel_left = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_ip = new System.Windows.Forms.Panel();
             this.label_ip = new System.Windows.Forms.Label();
             this.textBox_ip = new System.Windows.Forms.TextBox();
             this.panel_label = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label_rx = new System.Windows.Forms.Label();
-            this.label_tx = new System.Windows.Forms.Label();
             this.label_status_connected = new System.Windows.Forms.Label();
             this.label_name_programs = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,28 +45,30 @@ namespace TCP_Client
             this.panel_connect = new System.Windows.Forms.Panel();
             this.button_disconnect = new System.Windows.Forms.Button();
             this.button_connect = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_rx = new System.Windows.Forms.Label();
+            this.label_tx = new System.Windows.Forms.Label();
             this.panel_log_data = new System.Windows.Forms.Panel();
-            this.button_send = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button_send_3 = new System.Windows.Forms.Button();
+            this.textBox_send_3 = new System.Windows.Forms.TextBox();
+            this.button_send_2 = new System.Windows.Forms.Button();
+            this.textBox_send_2 = new System.Windows.Forms.TextBox();
+            this.button_send_1 = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
-            this.textBox_send = new System.Windows.Forms.TextBox();
+            this.textBox_send_1 = new System.Windows.Forms.TextBox();
             this.textBox_log = new System.Windows.Forms.TextBox();
             this.label_log = new System.Windows.Forms.Label();
             this.timer_notifications = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_left.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_ip.SuspendLayout();
             this.panel_label.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_connect.SuspendLayout();
             this.panel_log_data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_left
@@ -84,6 +84,18 @@ namespace TCP_Client
             this.panel_left.Name = "panel_left";
             this.panel_left.Size = new System.Drawing.Size(232, 342);
             this.panel_left.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::TCP_Client.Properties.Resources.footer_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 315);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(209, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.GitHub_Click);
             // 
             // panel_ip
             // 
@@ -113,34 +125,19 @@ namespace TCP_Client
             this.textBox_ip.Name = "textBox_ip";
             this.textBox_ip.Size = new System.Drawing.Size(185, 29);
             this.textBox_ip.TabIndex = 4;
-            this.textBox_ip.Text = "10.200.72.32";
+            this.textBox_ip.Text = "192.168.184.199";
             this.textBox_ip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel_label
             // 
             this.panel_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_label.Controls.Add(this.label2);
             this.panel_label.Controls.Add(this.label1);
-            this.panel_label.Controls.Add(this.label_rx);
-            this.panel_label.Controls.Add(this.label_tx);
             this.panel_label.Controls.Add(this.label_status_connected);
             this.panel_label.Controls.Add(this.label_name_programs);
             this.panel_label.Location = new System.Drawing.Point(12, 12);
             this.panel_label.Name = "panel_label";
-            this.panel_label.Size = new System.Drawing.Size(209, 87);
+            this.panel_label.Size = new System.Drawing.Size(209, 70);
             this.panel_label.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(98, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "/";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -152,30 +149,6 @@ namespace TCP_Client
             this.label1.TabIndex = 1;
             this.label1.Text = "by M.Semerkov";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_rx
-            // 
-            this.label_rx.AutoSize = true;
-            this.label_rx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
-            this.label_rx.ForeColor = System.Drawing.Color.DimGray;
-            this.label_rx.Location = new System.Drawing.Point(108, 64);
-            this.label_rx.Name = "label_rx";
-            this.label_rx.Size = new System.Drawing.Size(32, 17);
-            this.label_rx.TabIndex = 15;
-            this.label_rx.Text = "RX";
-            this.label_rx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_tx
-            // 
-            this.label_tx.AutoSize = true;
-            this.label_tx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
-            this.label_tx.ForeColor = System.Drawing.Color.DimGray;
-            this.label_tx.Location = new System.Drawing.Point(70, 64);
-            this.label_tx.Name = "label_tx";
-            this.label_tx.Size = new System.Drawing.Size(29, 17);
-            this.label_tx.TabIndex = 14;
-            this.label_tx.Text = "TX";
-            this.label_tx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_status_connected
             // 
@@ -229,7 +202,7 @@ namespace TCP_Client
             this.textBox_port.Name = "textBox_port";
             this.textBox_port.Size = new System.Drawing.Size(185, 26);
             this.textBox_port.TabIndex = 4;
-            this.textBox_port.Text = "4001";
+            this.textBox_port.Text = "4005";
             this.textBox_port.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel_connect
@@ -264,18 +237,57 @@ namespace TCP_Client
             this.button_connect.UseVisualStyleBackColor = true;
             this.button_connect.Click += new System.EventHandler(this.button_connect_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(42, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "/";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_rx
+            // 
+            this.label_rx.AutoSize = true;
+            this.label_rx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label_rx.ForeColor = System.Drawing.Color.DimGray;
+            this.label_rx.Location = new System.Drawing.Point(52, 8);
+            this.label_rx.Name = "label_rx";
+            this.label_rx.Size = new System.Drawing.Size(32, 17);
+            this.label_rx.TabIndex = 15;
+            this.label_rx.Text = "RX";
+            this.label_rx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_tx
+            // 
+            this.label_tx.AutoSize = true;
+            this.label_tx.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
+            this.label_tx.ForeColor = System.Drawing.Color.DimGray;
+            this.label_tx.Location = new System.Drawing.Point(14, 8);
+            this.label_tx.Name = "label_tx";
+            this.label_tx.Size = new System.Drawing.Size(29, 17);
+            this.label_tx.TabIndex = 14;
+            this.label_tx.Text = "TX";
+            this.label_tx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel_log_data
             // 
+            this.panel_log_data.Controls.Add(this.label2);
             this.panel_log_data.Controls.Add(this.label5);
             this.panel_log_data.Controls.Add(this.label4);
+            this.panel_log_data.Controls.Add(this.label_rx);
+            this.panel_log_data.Controls.Add(this.label_tx);
             this.panel_log_data.Controls.Add(this.label3);
-            this.panel_log_data.Controls.Add(this.button2);
-            this.panel_log_data.Controls.Add(this.textBox2);
-            this.panel_log_data.Controls.Add(this.button1);
-            this.panel_log_data.Controls.Add(this.textBox1);
-            this.panel_log_data.Controls.Add(this.button_send);
+            this.panel_log_data.Controls.Add(this.button_send_3);
+            this.panel_log_data.Controls.Add(this.textBox_send_3);
+            this.panel_log_data.Controls.Add(this.button_send_2);
+            this.panel_log_data.Controls.Add(this.textBox_send_2);
+            this.panel_log_data.Controls.Add(this.button_send_1);
             this.panel_log_data.Controls.Add(this.button_clear);
-            this.panel_log_data.Controls.Add(this.textBox_send);
+            this.panel_log_data.Controls.Add(this.textBox_send_1);
             this.panel_log_data.Controls.Add(this.textBox_log);
             this.panel_log_data.Controls.Add(this.label_log);
             this.panel_log_data.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -284,16 +296,96 @@ namespace TCP_Client
             this.panel_log_data.Size = new System.Drawing.Size(474, 342);
             this.panel_log_data.TabIndex = 1;
             // 
-            // button_send
+            // label5
             // 
-            this.button_send.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
-            this.button_send.Location = new System.Drawing.Point(387, 250);
-            this.button_send.Name = "button_send";
-            this.button_send.Size = new System.Drawing.Size(75, 22);
-            this.button_send.TabIndex = 7;
-            this.button_send.Text = "send";
-            this.button_send.UseVisualStyleBackColor = true;
-            this.button_send.Click += new System.EventHandler(this.button_send_Click_1);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label5.Location = new System.Drawing.Point(8, 308);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "3.";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label4.Location = new System.Drawing.Point(8, 281);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "2.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label3.Location = new System.Drawing.Point(8, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "1.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // button_send_3
+            // 
+            this.button_send_3.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
+            this.button_send_3.Location = new System.Drawing.Point(388, 306);
+            this.button_send_3.Name = "button_send_3";
+            this.button_send_3.Size = new System.Drawing.Size(75, 22);
+            this.button_send_3.TabIndex = 11;
+            this.button_send_3.Text = "send";
+            this.button_send_3.UseVisualStyleBackColor = true;
+            this.button_send_3.Click += new System.EventHandler(this.button_send_3_Click);
+            // 
+            // textBox_send_3
+            // 
+            this.textBox_send_3.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_send_3.Location = new System.Drawing.Point(36, 306);
+            this.textBox_send_3.Multiline = true;
+            this.textBox_send_3.Name = "textBox_send_3";
+            this.textBox_send_3.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_3.TabIndex = 10;
+            this.textBox_send_3.Text = "3";
+            this.textBox_send_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button_send_2
+            // 
+            this.button_send_2.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
+            this.button_send_2.Location = new System.Drawing.Point(388, 278);
+            this.button_send_2.Name = "button_send_2";
+            this.button_send_2.Size = new System.Drawing.Size(75, 22);
+            this.button_send_2.TabIndex = 9;
+            this.button_send_2.Text = "send";
+            this.button_send_2.UseVisualStyleBackColor = true;
+            this.button_send_2.Click += new System.EventHandler(this.button_send_2_Click);
+            // 
+            // textBox_send_2
+            // 
+            this.textBox_send_2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_send_2.Location = new System.Drawing.Point(36, 278);
+            this.textBox_send_2.Multiline = true;
+            this.textBox_send_2.Name = "textBox_send_2";
+            this.textBox_send_2.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_2.TabIndex = 8;
+            this.textBox_send_2.Text = "2";
+            this.textBox_send_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button_send_1
+            // 
+            this.button_send_1.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
+            this.button_send_1.Location = new System.Drawing.Point(387, 250);
+            this.button_send_1.Name = "button_send_1";
+            this.button_send_1.Size = new System.Drawing.Size(75, 22);
+            this.button_send_1.TabIndex = 7;
+            this.button_send_1.Text = "send";
+            this.button_send_1.UseVisualStyleBackColor = true;
+            this.button_send_1.Click += new System.EventHandler(this.button_send_1_Click);
             // 
             // button_clear
             // 
@@ -306,16 +398,16 @@ namespace TCP_Client
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
-            // textBox_send
+            // textBox_send_1
             // 
-            this.textBox_send.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_send.Location = new System.Drawing.Point(36, 250);
-            this.textBox_send.Multiline = true;
-            this.textBox_send.Name = "textBox_send";
-            this.textBox_send.Size = new System.Drawing.Size(346, 22);
-            this.textBox_send.TabIndex = 6;
-            this.textBox_send.Text = "1b 47 73 30 33 04";
-            this.textBox_send.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_send_1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_send_1.Location = new System.Drawing.Point(36, 250);
+            this.textBox_send_1.Multiline = true;
+            this.textBox_send_1.Name = "textBox_send_1";
+            this.textBox_send_1.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_1.TabIndex = 6;
+            this.textBox_send_1.Text = "1";
+            this.textBox_send_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_log
             // 
@@ -333,9 +425,9 @@ namespace TCP_Client
             // 
             this.label_log.Font = new System.Drawing.Font("BankGothic Md BT", 12F);
             this.label_log.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label_log.Location = new System.Drawing.Point(7, 8);
+            this.label_log.Location = new System.Drawing.Point(11, 8);
             this.label_log.Name = "label_log";
-            this.label_log.Size = new System.Drawing.Size(455, 20);
+            this.label_log.Size = new System.Drawing.Size(451, 20);
             this.label_log.TabIndex = 3;
             this.label_log.Text = "log data";
             this.label_log.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,96 +437,6 @@ namespace TCP_Client
             this.timer_notifications.Enabled = true;
             this.timer_notifications.Interval = 500;
             this.timer_notifications.Tick += new System.EventHandler(this.timer_notifications_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
-            this.button1.Location = new System.Drawing.Point(388, 278);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 22);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "send";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(36, 278);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 22);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "1b 47 73 30 33 04";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F);
-            this.button2.Location = new System.Drawing.Point(388, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 22);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "send";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(36, 306);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 22);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "1b 47 73 30 33 04";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label3.Location = new System.Drawing.Point(8, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "1.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label4.Location = new System.Drawing.Point(8, 281);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "2.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label5.Location = new System.Drawing.Point(8, 308);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 17);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "3.";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::TCP_Client.Properties.Resources.footer_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 315);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(209, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.GitHub_Click);
             // 
             // Form1
             // 
@@ -447,16 +449,15 @@ namespace TCP_Client
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.panel_left.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_ip.ResumeLayout(false);
             this.panel_ip.PerformLayout();
             this.panel_label.ResumeLayout(false);
-            this.panel_label.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel_connect.ResumeLayout(false);
             this.panel_log_data.ResumeLayout(false);
             this.panel_log_data.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,8 +478,8 @@ namespace TCP_Client
         private System.Windows.Forms.TextBox textBox_log;
         private System.Windows.Forms.Label label_log;
         private System.Windows.Forms.Label label_ip;
-        private System.Windows.Forms.Button button_send;
-        private System.Windows.Forms.TextBox textBox_send;
+        private System.Windows.Forms.Button button_send_1;
+        private System.Windows.Forms.TextBox textBox_send_1;
         private System.Windows.Forms.Label label_status_connected;
         private System.Windows.Forms.Button button_disconnect;
         private System.Windows.Forms.Panel panel1;
@@ -488,10 +489,10 @@ namespace TCP_Client
         private System.Windows.Forms.Label label_tx;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button_send_3;
+        private System.Windows.Forms.TextBox textBox_send_3;
+        private System.Windows.Forms.Button button_send_2;
+        private System.Windows.Forms.TextBox textBox_send_2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
