@@ -90,5 +90,26 @@
   <ItemGroup>
     <None Include="Resources\Picasa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2e1659c309466d282f16de6be62cc69a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1ba245694da3be377557937c0ffd1b62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7176bb1e782d655dbead8a10e6b38f5b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microsoft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\footer-logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using TCP_Asynchronous_Client;
 
@@ -161,6 +162,11 @@ namespace TCP_Client
             label_rx.ForeColor = System.Drawing.Color.DimGray;
 
 
+        }
+
+        private void GitHub_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/Mikhail-Semerkov/TCP_Client_Async/");
         }
     }
 
