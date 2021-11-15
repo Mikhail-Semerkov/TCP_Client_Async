@@ -49,6 +49,10 @@ namespace TCP_Client
             this.label_rx = new System.Windows.Forms.Label();
             this.label_tx = new System.Windows.Forms.Label();
             this.panel_log_data = new System.Windows.Forms.Panel();
+            this.checkBox_hex_3 = new System.Windows.Forms.CheckBox();
+            this.checkBox_hex_2 = new System.Windows.Forms.CheckBox();
+            this.checkBox_hex_1 = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -275,6 +279,10 @@ namespace TCP_Client
             // 
             // panel_log_data
             // 
+            this.panel_log_data.Controls.Add(this.checkBox_hex_3);
+            this.panel_log_data.Controls.Add(this.checkBox_hex_2);
+            this.panel_log_data.Controls.Add(this.checkBox_hex_1);
+            this.panel_log_data.Controls.Add(this.label8);
             this.panel_log_data.Controls.Add(this.label2);
             this.panel_log_data.Controls.Add(this.label5);
             this.panel_log_data.Controls.Add(this.label4);
@@ -295,6 +303,53 @@ namespace TCP_Client
             this.panel_log_data.Name = "panel_log_data";
             this.panel_log_data.Size = new System.Drawing.Size(474, 342);
             this.panel_log_data.TabIndex = 1;
+            // 
+            // checkBox_hex_3
+            // 
+            this.checkBox_hex_3.AutoSize = true;
+            this.checkBox_hex_3.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F);
+            this.checkBox_hex_3.ForeColor = System.Drawing.Color.White;
+            this.checkBox_hex_3.Location = new System.Drawing.Point(331, 310);
+            this.checkBox_hex_3.Name = "checkBox_hex_3";
+            this.checkBox_hex_3.Size = new System.Drawing.Size(50, 16);
+            this.checkBox_hex_3.TabIndex = 22;
+            this.checkBox_hex_3.Text = "HEX";
+            this.checkBox_hex_3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_hex_2
+            // 
+            this.checkBox_hex_2.AutoSize = true;
+            this.checkBox_hex_2.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F);
+            this.checkBox_hex_2.ForeColor = System.Drawing.Color.White;
+            this.checkBox_hex_2.Location = new System.Drawing.Point(331, 282);
+            this.checkBox_hex_2.Name = "checkBox_hex_2";
+            this.checkBox_hex_2.Size = new System.Drawing.Size(50, 16);
+            this.checkBox_hex_2.TabIndex = 21;
+            this.checkBox_hex_2.Text = "HEX";
+            this.checkBox_hex_2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_hex_1
+            // 
+            this.checkBox_hex_1.AutoSize = true;
+            this.checkBox_hex_1.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F);
+            this.checkBox_hex_1.ForeColor = System.Drawing.Color.White;
+            this.checkBox_hex_1.Location = new System.Drawing.Point(331, 253);
+            this.checkBox_hex_1.Name = "checkBox_hex_1";
+            this.checkBox_hex_1.Size = new System.Drawing.Size(50, 16);
+            this.checkBox_hex_1.TabIndex = 20;
+            this.checkBox_hex_1.Text = "HEX";
+            this.checkBox_hex_1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label8.Location = new System.Drawing.Point(309, 311);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 12);
+            this.label8.TabIndex = 19;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
@@ -349,7 +404,7 @@ namespace TCP_Client
             this.textBox_send_3.Location = new System.Drawing.Point(36, 306);
             this.textBox_send_3.Multiline = true;
             this.textBox_send_3.Name = "textBox_send_3";
-            this.textBox_send_3.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_3.Size = new System.Drawing.Size(289, 22);
             this.textBox_send_3.TabIndex = 10;
             this.textBox_send_3.Text = "3";
             this.textBox_send_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -371,7 +426,7 @@ namespace TCP_Client
             this.textBox_send_2.Location = new System.Drawing.Point(36, 278);
             this.textBox_send_2.Multiline = true;
             this.textBox_send_2.Name = "textBox_send_2";
-            this.textBox_send_2.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_2.Size = new System.Drawing.Size(289, 22);
             this.textBox_send_2.TabIndex = 8;
             this.textBox_send_2.Text = "2";
             this.textBox_send_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -404,7 +459,7 @@ namespace TCP_Client
             this.textBox_send_1.Location = new System.Drawing.Point(36, 250);
             this.textBox_send_1.Multiline = true;
             this.textBox_send_1.Name = "textBox_send_1";
-            this.textBox_send_1.Size = new System.Drawing.Size(346, 22);
+            this.textBox_send_1.Size = new System.Drawing.Size(289, 22);
             this.textBox_send_1.TabIndex = 6;
             this.textBox_send_1.Text = "1";
             this.textBox_send_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -496,6 +551,10 @@ namespace TCP_Client
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox_hex_3;
+        private System.Windows.Forms.CheckBox checkBox_hex_2;
+        private System.Windows.Forms.CheckBox checkBox_hex_1;
+        private System.Windows.Forms.Label label8;
     }
 }
 

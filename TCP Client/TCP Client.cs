@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Text;
 using System.Diagnostics;
 using System.Windows.Forms;
 using TCP_Asynchronous_Client;
 
+
 namespace TCP_Client
 {
+
     public partial class Form1 : Form
     {
 
@@ -14,6 +17,13 @@ namespace TCP_Client
         public AddNotificationDelegate UpdateStatusIcons;
 
         AsynchronousClient tcp;
+
+
+        String Value_Hex_1;
+        String Value_Hex_2;
+        String Value_Hex_3;
+
+        
 
         public Form1()
         {
@@ -25,6 +35,32 @@ namespace TCP_Client
             StatusUpdate(1, false);
 
         }
+
+        public static string ToHexString(string str)
+        {
+            string decString = str;
+            byte[] bytes = Encoding.Default.GetBytes(decString);
+            string hexString = BitConverter.ToString(bytes);
+            hexString = hexString.Replace("-", "");
+
+            return hexString;
+
+        }
+
+        public static string FromHexString(string hexString)
+        {
+            var bytes = new byte[hexString.Length / 2];
+            for (var i = 0; i < bytes.Length; i++)
+            {
+                bytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            }
+
+            return Encoding.Unicode.GetString(bytes); // returns: "Hello world" for "48656C6C6F20776F726C64"
+        }
+
+
+
+
 
         private void button_connect_Click(object sender, EventArgs e)
         {
@@ -142,8 +178,6 @@ namespace TCP_Client
         }
 
 
-        
-
         public void send_data(int Send_Data)
         {
 
@@ -154,10 +188,9 @@ namespace TCP_Client
                 switch (Send_Data)
                 {
                     case 1:
-                        if (tcp.Write(textBox_send_1.Text))
+                        if (tcp.Write((textBox_send_1.Text)))
                         {
                             Log("Write (Success) : " + textBox_send_1.Text + "\n");
-
                         }
                         else
                         {
@@ -170,7 +203,6 @@ namespace TCP_Client
                         if (tcp.Write(textBox_send_2.Text))
                         {
                             Log("Write (Success) : " + textBox_send_2.Text + "\n");
-
                         }
                         else
                         {
@@ -183,7 +215,39 @@ namespace TCP_Client
                         if (tcp.Write(textBox_send_3.Text))
                         {
                             Log("Write (Success) : " + textBox_send_3.Text + "\n");
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
 
+                    case 4:
+                        if (tcp.Write(Value_Hex_1))
+                        {
+                            Log("Write (Success) : " + Value_Hex_1);
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
+
+                    case 5:
+                        if (tcp.Write(Value_Hex_2))
+                        {
+                            Log("Write (Success) : " + Value_Hex_2);
+                        }
+                        else
+                        {
+                            Log("Write (Failed) : Disconnected");
+                        }
+                        break;
+
+                    case 6:
+                        if (tcp.Write(Value_Hex_3))
+                        {
+                            Log("Write (Success) : " + Value_Hex_3);
                         }
                         else
                         {
@@ -200,19 +264,53 @@ namespace TCP_Client
         }
 
 
+
+
+
+
+
         private void button_send_1_Click(object sender, EventArgs e)
         {
-            send_data(1);
+
+            if(checkBox_hex_1.Checked == true)
+            {
+                Value_Hex_1 = ToHexString(textBox_send_1.Text);
+                send_data(4);
+            }
+
+            else if (checkBox_hex_1.Checked == false)
+            {
+                send_data(1);
+            }
+
         }
 
         private void button_send_2_Click(object sender, EventArgs e)
         {
-            send_data(2);
+            if (checkBox_hex_2.Checked == true)
+            {
+                Value_Hex_2 = ToHexString(textBox_send_2.Text);
+                send_data(5);
+            }
+
+            else if (checkBox_hex_2.Checked == false)
+            {
+                send_data(2);
+            }
         }
 
         private void button_send_3_Click(object sender, EventArgs e)
         {
-            send_data(3);
+            if (checkBox_hex_3.Checked == true)
+            {
+                Value_Hex_3 = ToHexString(textBox_send_3.Text);
+                send_data(6);
+            }
+
+            else if (checkBox_hex_3.Checked == false)
+            {
+                send_data(3);
+            }
         }
     }
     
